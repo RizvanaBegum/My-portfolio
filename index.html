@@ -1,0 +1,1229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>Rizvana's Portfolio</title>
+    <link rel="icon" href="https://rizvana-portfolio-site.s3.us-east-1.amazonaws.com/images/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://rizvana-portfolio-site.s3.us-east-1.amazonaws.com/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;300;400;600;700&display=swap"
+        rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" rel="stylesheet"
+        type='text/css'>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-circle-progress/1.2.2/circle-progress.min.js"></script>
+
+    <!-- Mobile-specific styles -->
+    <style>
+        @media screen and (max-width: 768px) {
+            * {
+                box-sizing: border-box;
+            }
+
+            body {
+                overflow-x: hidden;
+            }
+
+            .container, .containers {
+                padding: 0 20px;
+                margin: 0 auto;
+            }
+
+            .box {
+                padding: 20px;
+            }
+
+            /* Header Section */
+            #header {
+                min-height: 100vh;
+                padding: 20px 0;
+            }
+
+            nav {
+                padding: 10px 0;
+            }
+
+            nav .logo {
+                width: 80px;
+            }
+
+            #sidemenu {
+                position: fixed;
+                right: -200px;
+                top: 0;
+                width: 200px;
+                height: 100vh;
+                background: #000;
+                z-index: 2;
+                transition: 0.5s;
+            }
+
+            #sidemenu.active {
+                right: 0;
+            }
+
+            #sidemenu li {
+                display: block;
+                margin: 25px;
+            }
+
+            .header-text {
+                margin-top: 50px;
+                font-size: 16px;
+            }
+
+            .header-text h1 {
+                font-size: 30px;
+            }
+
+            .header-text h2 {
+                font-size: 20px;
+            }
+
+            /* About Section */
+            .row {
+                flex-direction: column;
+            }
+
+            .col-1, .col-2 {
+                flex-basis: 100%;
+            }
+
+            .col-2 img {
+                width: 100%;
+                margin-top: 20px;
+            }
+
+            /* Projects Section */
+            .service-list {
+                display: grid;
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .card {
+                margin: 10px 0;
+                height: auto !important;
+            }
+
+            /* Skills Section */
+            .tab-titles {
+                display: flex;
+                margin: 20px 0;
+                overflow-x: auto;
+                white-space: nowrap;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            .tab-links {
+                margin-right: 15px;
+                font-size: 14px;
+                display: inline-block;
+            }
+
+            .tab-contents ul li {
+                margin: 10px 0;
+            }
+
+            /* Achievements Section */
+            .achievement1 {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .cards, .cards1 {
+                width: 100%;
+                margin: 10px 0;
+            }
+
+            /* Certifications Section */
+            .services-list {
+                display: grid;
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .post-card {
+                margin: 10px 0;
+            }
+
+            .image-preview img {
+                max-width: 100%;
+                height: auto;
+            }
+
+            /* Contact Section */
+            .contact-form {
+                padding: 20px;
+            }
+
+            .contact-img {
+                display: none;
+            }
+
+            /* Social Section */
+            .Social {
+                padding: 20px;
+            }
+
+            .wrappeer {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 20px;
+            }
+
+            .icon {
+                margin: 10px;
+            }
+
+            /* Menu Button */
+            .fas.fa-bars {
+                display: block;
+                font-size: 24px;
+                cursor: pointer;
+            }
+
+            .fas.fa-times {
+                display: block;
+                font-size: 24px;
+                cursor: pointer;
+                position: absolute;
+                top: 20px;
+                right: 20px;
+            }
+
+            /* Fix for cover photo */
+            #header {
+                background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://rizvana-portfolio-site.s3.us-east-1.amazonaws.com/images/rizhome.png');
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- home function -->
+    <div id="header">
+        <div class="container box">
+            <nav>
+                <img src="https://rizvana-portfolio-site.s3.us-east-1.amazonaws.com/images/rizvanacover.png" class="logo" width="100px">
+
+                <ul id="sidemenu">
+                    <li><a href="#header">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <!-- <li><a href="Section-Photo/photography.html">Photographs</a></li> -->
+                    <li><a href="#Achievements">Achievements</a></li>
+                    <li><a href="#certifications">Certifications</a></li>
+                    <li><a href="#contactme">Contact</a></li>
+              
+                  
+                    <i class="fas fa-times" onclick="closemenu()"></i>
+                </ul>
+                <i class="fas fa-bars" onclick="openmenu()"></i>
+            </nav>
+
+            <div class="header-text">
+                
+
+                <div class="loader  animate__animated animate__slideInDown">
+                    
+                    <div >
+                        <span style="--i:11"></span>
+                        <span style="--i:12"></span>
+                        <span style="--i:15"></span>
+                        <span style="--i:17"></span>
+                        <span style="--i:18"></span>
+                        <span style="--i:13"></span>
+                        <span style="--i:14"></span>
+                        <span style="--i:19"></span>
+                        <span style="--i:20"></span>
+                        <span style="--i:10"></span>
+                        <span style="--i:18"></span>
+                        <span style="--i:13"></span>
+                        <span style="--i:14"></span>
+                        <span style="--i:19"></span>
+                        <span style="--i:20"></span>
+                        <span style="--i:10"></span>
+                        <span style="--i:18"></span>
+                        <span style="--i:13"></span>
+                        <span style="--i:14"></span>
+                        <span style="--i:19"></span>
+                        <span style="--i:20"></span>
+                        <span style="--i:10"></span>
+                    </div>
+                </div>
+                <!-- <div class="loaader  animate__animated animate__slideInDown">
+                
+
+                    <div class="snow">
+                        <span style="--i:11"></span>
+                        <span style="--i:12"></span>
+                        <span style="--i:15"></span>
+                        <span style="--i:17"></span>
+                        <span style="--i:18"></span>
+                        <span style="--i:13"></span>
+                        <span style="--i:14"></span>
+                        <span style="--i:19"></span>
+                        <span style="--i:20"></span>
+                        <span style="--i:10"></span>
+                        <span style="--i:18"></span>
+                        <span style="--i:13"></span>
+                        <span style="--i:14"></span>
+                        <span style="--i:19"></span>
+                        <span style="--i:20"></span>
+                        <span style="--i:10"></span>
+                        <span style="--i:18"></span>
+                        <span style="--i:13"></span>
+                        <span style="--i:14"></span>
+                        <span style="--i:19"></span>
+                        <span style="--i:20"></span>
+                        <span style="--i:10"></span>
+                    </div>
+                </div> -->
+                <div class="setdiv  animate__animated animate__slideInUp">
+                    <h2>Hi, I'm <br></h2>
+                    <h1><span>Rizvana Begum <br>Thahirudeen</span></h1>
+                    <p> Cloud and DevOps Engineer💻</p>
+                    <!-- <a href="https://git.io/typing-svg"><img
+                            src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&pause=1000&width=435&lines=I'm+a+Software+Engineer+Student;I+am+also+a+Software+Developer+;Love+to+take+Photos+and+write+blogs"
+                            alt="Typing SVG" /></a> -->
+
+               
+
+                    <!-- <div class="wrapper">
+                        <div class="circle"></div>
+                        <div class="circle"></div>
+                        <div class="circle"></div>
+                        <div class="shadow"></div>
+                        <div class="shadow"></div>
+                        <div class="shadow"></div>
+                    </div> -->
+                </div>
+
+            </div>
+
+            <div class="notification"
+                onclick="window.location.href = 'https://drive.google.com/file/d/1cJktVkomxW3xuuCUKKX5wHX3VxJIsyhi/view?usp=sharing';">
+                <p>Would you like to check my CV ?😊</p>
+                <span class="notification__progress"></span>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="Section-Home/menu.js"></script>
+
+    <!-- home function -->
+
+    <div id="progress">
+        <span id="progress-value" class="gotoTop">
+            <?xml version="1.0" ?>
+            <!DOCTYPE svg PUBLIC '-//W3C//DTD SVG 1.1//EN' 'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'><svg
+                height="512px" id="Layer_1" style="enable-background:new 0 0 512 512;" version="1.1"
+                viewBox="0 0 512 512" width="512px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink">
+                <path
+                    d="M128.4,189.3L233.4,89c5.8-6,13.7-9,22.4-9c8.7,0,16.5,3,22.4,9l105.4,100.3c12.5,11.9,12.5,31.3,0,43.2  c-12.5,11.9-32.7,11.9-45.2,0L288,184.4v217c0,16.9-14.3,30.6-32,30.6c-17.7,0-32-13.7-32-30.6v-217l-50.4,48.2  c-12.5,11.9-32.7,11.9-45.2,0C115.9,220.6,115.9,201.3,128.4,189.3z" />
+            </svg>
+        </span>
+    </div>
+    <script src="Section-Home/Scroll-Top.js"></script>
+
+
+    <!-- about section -->
+    <div id="about">
+        <div class="containers box">
+            <div class="row">
+                <div class="col-1">
+                    <h1 class="sub-title">About Me</h1>
+
+                    <div class="sub-line">
+                        <p>
+                            I'm a Cloud & DevOps Engineer with 4 years of IT experience, including 2 years of hands-on work in AWS and DevOps, and a passion for automation and cloud architecture.
+                            Actively seeking an AWS architecture-focused role where I can apply my expertise in cloud infrastructure and DevOps tools.
+                        </p>
+                    </div>
+
+                    <div class="tab-titles">
+                        <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
+                        <p class="tab-links" onclick="opentab('experience')">Experience</p>
+                        <p class="tab-links" onclick="opentab('education')">Education</p>
+                        <p class="tab-links" onclick="opentab('others')">Others</p>
+                    </div>
+
+                    <div class="tab-contents active-tab" id="skills">
+                        <ul>
+                            <li><span>AWS Core Services : <br></span>
+                                <div class="space1">
+                                    <img src="https://img.shields.io/badge/AWS-%23FF9900.svg?style=for-the-badge&logo=amazon-aws&logoColor=white">
+                                    <img src="https://img.shields.io/badge/Amazon_EC2-FF9900?style=for-the-badge&logo=amazon-ec2&logoColor=white">
+                                    <img src="https://img.shields.io/badge/Amazon_S3-569A31?style=for-the-badge&logo=amazon-s3&logoColor=white">
+                                    <img src="https://img.shields.io/badge/Amazon_RDS-527FFF?style=for-the-badge&logo=amazon-rds&logoColor=white">
+                                    <img src="https://img.shields.io/badge/Amazon_IAM-232F3E?style=for-the-badge&logo=amazon-aws&logoColor=white">
+                                    <img src="https://img.shields.io/badge/Amazon_CloudFront-232F3E?style=for-the-badge&logo=amazon-cloudfront&logoColor=white">
+                                </div>
+                            </li>
+                            <li><span>AWS Networking & Compute : <br></span>
+                                <div class="space1">
+                                    <img src="https://img.shields.io/badge/Amazon_VPC-232F3E?style=for-the-badge&logo=amazon-vpc&logoColor=white">
+                                    <img src="https://img.shields.io/badge/Amazon_Lambda-FF9900?style=for-the-badge&logo=aws-lambda&logoColor=white">
+                                    <img src="https://img.shields.io/badge/Amazon_ELB-232F3E?style=for-the-badge&logo=amazon-elastic-load-balancing&logoColor=white">
+                                </div>
+                            </li>
+                            <li><span>Infrastructure as Code : <br></span>
+                                <div class="space1">
+                                    <img src="https://img.shields.io/badge/Terraform-7B42BC?style=for-the-badge&logo=terraform&logoColor=white">
+                                    <img src="https://img.shields.io/badge/AWS_CloudFormation-232F3E?style=for-the-badge&logo=amazon-aws&logoColor=white">
+                                </div>
+                            </li>
+                            <li><span>Containerization & Orchestration : <br></span>
+                                <div class="space1">
+                                    <img src="https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white">
+                                    <img src="https://img.shields.io/badge/kubernetes-326ce5.svg?style=for-the-badge&logo=kubernetes&logoColor=white">
+                                    <img src="https://img.shields.io/badge/Amazon_ECS-232F3E?style=for-the-badge&logo=amazon-aws&logoColor=white">
+                                </div>
+                            </li>
+                            <li><span>Monitoring & Management : <br></span>
+                                <div class="space1">
+                                    <img src="https://img.shields.io/badge/AWS_CloudWatch-232F3E?style=for-the-badge&logo=amazon-cloudwatch&logoColor=white">
+                                    <img src="https://img.shields.io/badge/AWS_Systems_Manager-232F3E?style=for-the-badge&logo=amazon-aws&logoColor=white">
+                                    <img src="https://img.shields.io/badge/AWS_Config-232F3E?style=for-the-badge&logo=amazon-aws&logoColor=white">
+                                    <img src="https://img.shields.io/badge/Ansible-EE0000?style=for-the-badge&logo=ansible&logoColor=white">
+                                </div>
+                            </li>
+                            <li><span>CI/CD & Version Control : <br></span>
+                                <div class="space1">
+                                    <img src="https://img.shields.io/badge/Jenkins-D24939?style=for-the-badge&logo=Jenkins&logoColor=white">
+                                    <img src="https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white">
+                                    <img src="https://img.shields.io/badge/AWS_CodePipeline-232F3E?style=for-the-badge&logo=amazon-aws&logoColor=white">
+                                    <img src="https://img.shields.io/badge/Jira-0052CC?style=for-the-badge&logo=Jira&logoColor=white">
+                                    <img src="https://img.shields.io/badge/Agile-009999?style=for-the-badge&logo=agile&logoColor=white">
+                                </div>
+                            </li>
+                            <li><span>Operating Systems & Scripting : <br></span>
+                                <div class="space1">
+                                    <img src="https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black">
+                                    <img src="https://img.shields.io/badge/Shell_Script-121011?style=for-the-badge&logo=gnu-bash&logoColor=white">
+                                    <img src="https://img.shields.io/badge/AWS_CLI-232F3E?style=for-the-badge&logo=amazon-aws&logoColor=white">
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+
+                    <div class="tab-contents" id="others">
+                        <ul>
+                            <li><span>Testing & Automation : <br></span>
+                                <div class="space1">
+                                    <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white">
+                                    <img src="https://img.shields.io/badge/Selenium-43B02A?style=for-the-badge&logo=selenium&logoColor=white">
+                                    <img src="https://img.shields.io/badge/BDD_Behave-000000?style=for-the-badge&logo=behave&logoColor=white">
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="tab-contents" id="education">
+                        <ul>
+                            <li><span class="Education"><b>Advanced Certification in Cloud Computing and DevOps</b> </span><br>
+                                <p>Indian Institute of Technology - Roorkee</p>
+                                <p align="left">April 2024 - March 2025</p>
+                                <p>• Hands-on labs with cloud architecture, automation, Jenkins, Terraform, Kubernetes, and Cloud automation projects.</p>
+                                <p>• Built and deployed multiple real-world infrastructure and automation projects (see Projects section).</p>
+                            </li><br>
+                            <li><span class="Education"><b>Bachelor of Engineering - Electronics and Communication Engineering</b> </span><br>
+                                <p>M.I.E.T. Engineering College - Trichy</p>
+                                <p align="left">June 2017 - April 2021 <span class="cg">(CGPA - 8.6)</span></p>
+                            </li><br>
+                            <li><span class="Education"><b>HSC (Higher Secondary Certificate)</b> </span><br>
+                                <p>Kalaimagal Higher Secondary School, Thanjavur</p>
+                                <p align="left">2016 - 2017 <span class="cg">(93%)</span></p>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="tab-contents" id="experience">
+                        <ul>
+                            <li><span class="Education"><b>Intellipaat [Bootcamp]</b> </span><br>
+                                <p>April 2024 - March 2025</p>
+                                <p>• Earned AWS Solutions Architect certification; executed cloud architecture and troubleshooting projects.</p>
+                                <p>• Designed and managed AWS infrastructure (EC2, S3, VPC, IAM, Auto Scaling, RDS) to deploy secure, scalable web applications, applying Infrastructure as Code (IaC) using Terraform and CloudFormation.</p>
+                                <p>• Automated CI/CD pipelines using Jenkins, Git, Docker, Ansible, and Kubernetes for streamlined deployments.</p>
+                            </li><br>
+                            <li><span class="Education"><b>Infosys | Software Quality Engineer</b> </span><br>
+                                <p>September 2021 - Present</p>
+                                <p>• Built and maintained CI/CD pipelines in Jenkins, reducing testing cycle time by 60%.</p>
+                                <p>• Collaborated with DevOps engineers to test and validate AWS-based architectures, gaining hands-on experience with S3, EC2, IAM policies, and VPC configurations.</p>
+                                <p>• Participated in infrastructure provisioning and validation using Infrastructure as Code (IaC) principles alongside Terraform and CloudFormation during project transitions.</p>
+                                <p>• Analyzed logs using AWS CloudWatch and Jenkins post-deployment to detect issues early, reducing post-release defects by 25%.</p>
+                                <p>• Automated 80% of regression test cases using Python, Selenium WebDriver, and BDD (Behave), resulting in a 30% reduction in manual testing effort and improved test reliability.</p>
+                                <p>• Participated in Scrum rituals, mentored junior team members, and received "Insta Award" for cross-team efficiency.</p>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+                <div class="col-2">
+                    <img src="https://rizvana-portfolio-site.s3.us-east-1.amazonaws.com/images/rizabout.png">
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+    <script>
+        var tablinks = document.getElementsByClassName("tab-links");
+        var tabcontents = document.getElementsByClassName("tab-contents");
+
+        function opentab(tabname) {
+            for (tablink of tablinks) {
+                tablink.classList.remove("active-link");
+            }
+
+            for (tabcontent of tabcontents) {
+                tabcontent.classList.remove("active-tab");
+            }
+            event.currentTarget.classList.add("active-link");
+            document.getElementById(tabname).classList.add("active-tab");
+
+        }
+    </script>
+    <!-- about section -->
+
+    
+
+
+    <!-- skills Section -->
+    
+    <h1 class="h1s box">My Skills</h1>
+    <br>
+    <div class="process-wrapperd box">
+        <div id="progress-bar-container">
+            <ul>
+                <li class="step step01 active">
+                    <div class="step-inner">Cloud & DevOps</div>
+                </li>
+                <li class="step step02">
+                    <div class="step-inner">Infrastructure</div>
+                </li>
+                <li class="step step03">
+                    <div class="step-inner">Automation</div>
+                </li>
+                <li class="step step04">
+                    <div class="step-inner">Management</div>
+                </li>
+                <li class="step step05">
+                    <div class="step-inner">Testing</div>
+                </li>
+            </ul>
+
+            <div id="line">
+                <div id="line-progress"></div>
+            </div>
+        </div>
+
+        <div id="progress-content-section">
+            <div class="section-content discovery active">
+                <div class="skills">
+                    <div class="wrapperd">
+                        <div class="carded">
+                            <div class="circled">
+                                <div class="bar"></div>
+                                <div class="box"><span></span></div>
+                            </div>
+                            <div class="text">AWS Services</div>
+                        </div>
+
+                        <div class="carded js">
+                            <div class="circled">
+                                <div class="bar"></div>
+                                <div class="box"><span></span></div>
+                            </div>
+                            <div class="text">CI/CD</div>
+                        </div>
+
+                        <div class="carded react">
+                            <div class="circled">
+                                <div class="bar"></div>
+                                <div class="box"><span></span></div>
+                            </div>
+                            <div class="text">DevOps Tools</div>
+                        </div>
+                    </div>
+                </div>
+                <h2>Cloud & DevOps</h2>
+            </div>
+
+            <div class="section-content strategy">
+                <div class="skills">
+                    <div class="wrapperd">
+                        <div class="carded java">
+                            <div class="circled">
+                                <div class="bar"></div>
+                                <div class="box"><span></span></div>
+                            </div>
+                            <div class="text">
+                                Terraform
+                            </div>
+                        </div>
+
+                        <div class="carded as">
+                            <div class="circled">
+                                <div class="bar"></div>
+                                <div class="box"><span></span></div>
+                            </div>
+                            <div class="text">
+                                CloudFormation
+                            </div>
+                        </div>
+
+                        <div class="carded firebase">
+                            <div class="circled">
+                                <div class="bar"></div>
+                                <div class="box"><span></span></div>
+                            </div>
+                            <div class="text">
+                                Docker & K8s
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <h2>Infrastructure</h2>
+            </div>
+
+            <div class="section-content creative">
+                <div class="skills">
+                    <div class="wrapperd">
+                        <div class="carded cc">
+                            <div class="circled">
+                                <div class="bar"></div>
+                                <div class="box"><span></span></div>
+                            </div>
+                            <div class="text">
+                                Shell Scripting
+                            </div>
+                        </div>
+
+                        <div class="carded python">
+                            <div class="circled">
+                                <div class="bar"></div>
+                                <div class="box"><span></span></div>
+                            </div>
+                            <div class="text">
+                                Python
+                            </div>
+                        </div>
+
+                        <div class="carded java">
+                            <div class="circled">
+                                <div class="bar"></div>
+                                <div class="box"><span></span></div>
+                            </div>
+                            <div class="text">
+                                AWS CLI
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <h2>Automation</h2>
+            </div>
+
+            <div class="section-content production">
+                <div class="skills">
+                    <div class="wrapperd">
+                        <div class="carded git">
+                            <div class="circled">
+                                <div class="bar"></div>
+                                <div class="box"><span></span></div>
+                            </div>
+                            <div class="text">
+                                Git & GitHub
+                            </div>
+                        </div>
+
+                        <div class="carded figma">
+                            <div class="circled">
+                                <div class="bar"></div>
+                                <div class="box"><span></span></div>
+                            </div>
+                            <div class="text">
+                                Jira
+                            </div>
+                        </div>
+
+                        <div class="carded canva">
+                            <div class="circled">
+                                <div class="bar"></div>
+                                <div class="box"><span></span></div>
+                            </div>
+                            <div class="text">
+                                Agile
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <h2>Management</h2>
+            </div>
+
+            <div class="section-content analysis">
+                <div class="skills">
+                    <div class="wrapperd">
+                        <div class="carded node">
+                            <div class="circled">
+                                <div class="bar"></div>
+                                <div class="box"><span></span></div>
+                            </div>
+                            <div class="text">
+                                Selenium
+                            </div>
+                        </div>
+
+                        <div class="carded sql">
+                            <div class="circled">
+                                <div class="bar"></div>
+                                <div class="box"><span></span></div>
+                            </div>
+                            <div class="text">
+                                BDD Behave
+                            </div>
+                        </div>
+
+                        <div class="carded php">
+                            <div class="circled">
+                                <div class="bar"></div>
+                                <div class="box"><span></span></div>
+                            </div>
+                            <div class="text">
+                                Test Automation
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <h2>Testing</h2>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let optionse = {
+            startAngle: -1.55,
+            size: 150,
+            value: 0.95,
+            fill: { gradient: ["#526D82", "rgb(2, 6, 48)"] },
+        };
+        $(".circled .bar")
+            .circleProgress(optionse)
+            .on("circle-animation-progress", function (event, progress, stepValue) {
+                $(this)
+                    .parent()
+                    .find("span")
+                    .text(String(stepValue.toFixed(2).substr(2)) + "%");
+            });
+        $(".js .bar").circleProgress({
+            value: 0.86,
+        });
+        $(".react .bar").circleProgress({
+            value: 0.75,
+        });
+        $(".java .bar").circleProgress({
+            value: 0.92,
+        });
+        $(".as .bar").circleProgress({
+            value: 0.88,
+        });
+        $(".firebase .bar").circleProgress({
+            value: 0.82,
+        });
+        $(".cc .bar").circleProgress({
+            value: 0.98,
+        });
+        $(".python .bar").circleProgress({
+            value: 0.84,
+        });
+        $(".node .bar").circleProgress({
+            value: 0.70,
+        });
+        $(".sql .bar").circleProgress({
+            value: 0.84,
+        });
+        $(".php .bar").circleProgress({
+            value: 0.78,
+        });
+        $(".git .bar").circleProgress({
+            value: 0.93,
+        });
+        $(".canva .bar").circleProgress({
+            value: 0.89,
+        });
+        $(".figma .bar").circleProgress({
+            value: 0.84,
+        });
+    </script>
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script>
+
+        $(".step").click(function () {
+            $(this).addClass("active").prevAll().addClass("active");
+            $(this).nextAll().removeClass("active");
+        });
+
+        $(".step01").click(function () {
+            $("#line-progress").css("width", "3%");
+            $(".discovery").addClass("active").siblings().removeClass("active");
+        });
+
+        $(".step02").click(function () {
+            $("#line-progress").css("width", "25%");
+            $(".strategy").addClass("active").siblings().removeClass("active");
+        });
+
+        $(".step03").click(function () {
+            $("#line-progress").css("width", "50%");
+            $(".creative").addClass("active").siblings().removeClass("active");
+        });
+
+        $(".step04").click(function () {
+            $("#line-progress").css("width", "75%");
+            $(".production").addClass("active").siblings().removeClass("active");
+        });
+
+        $(".step05").click(function () {
+            $("#line-progress").css("width", "100%");
+            $(".analysis").addClass("active").siblings().removeClass("active");
+        });
+
+
+    </script>
+
+    <!-- skill section -->
+
+
+
+    <!-- Projects section -->
+    <div id="projects">
+        <div class="containers box">
+            <h1 class="sub-title">My Projects</h1>
+            <div class="service-list">
+                <div>
+                    <div class="card" style="height: 600px;" onclick="window.location.href = 'https://github.com/RizvanaBegum/Automating-Software-Delivery-A-Complete-DevOps-Implementation';">
+                        <div class="card7">
+                            <div class="position">
+                                <img align="center" class="icon" src="images/auto.gif" width="190">
+                                <span class="p_hccolor">Automating Software Delivery</span>
+                                <p>
+                                    Complete DevOps Implementation with CI/CD pipeline using Jenkins, Docker, and GitHub
+                                </p>
+                                <p>
+                                    <b><span class="p_color">Technologies :</span></b> Jenkins, Docker, GitHub, Ansible<br>
+                                    <b><span class="p_color">Environment :</span></b> Linux <br>
+                                </p>
+
+                                <p align="right"><i><span class="p_color">(Learn more)</span></i></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="card" style="height: 600px;" onclick="window.location.href = 'https://github.com/RizvanaBegum/Project-Cloud-Based-CI-CD-Automation-for-Containerized-Application-Deployment';">
+                        <div class="card8">
+                            <div class="position">
+                                <img align="center" class="icon" src="images/git.gif" width="190">
+                                <span class="p_hcolor">Cloud-Based CI/CD Automation</span>
+                                <p>
+                                    End-to-end CI/CD pipeline implementation for containerized application deployment using Jenkins, Docker, and Kubernetes
+                                </p>
+                                <p>
+                                    <b><span class="p_color">Technologies :</span></b> Jenkins, Docker, Kubernetes, Terraform, Ansible<br>
+                                    <b><span class="p_color">Environment :</span></b> AWS Cloud <br>
+                                </p>
+
+                                <p align="right"><i><span class="p_color">(Learn more)</span></i></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="card" style="height: 600px;" onclick="window.location.href = 'https://github.com/RizvanaBegum/Project-Deploying-a-Multi-Tier-Website-from-Onpremise-to-AWS-';">
+                        <div class="card9">
+                            <div class="position">
+                                <img align="center" class="icon" src="images/Port.gif" width="190">
+                                <span class="p_hcolor">Multi-Tier Website Migration to AWS</span>
+                                <p>
+                                    Design and deployment of scalable multi-tier architecture on AWS, including web servers, application servers, and database layers
+                                </p>
+                                <p>
+                                    <b><span class="p_color">Technologies :</span></b> AWS EC2, RDS, CloudFormation, Auto Scaling<br>
+                                    <b><span class="p_color">Environment :</span></b> AWS Cloud <br>
+                                </p>
+
+                                <p align="right"><i><span class="p_color">(Learn more)</span></i></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="card" style="height: 600px;" onclick="window.location.href = 'https://github.com/RizvanaBegum/Project-Healthcare-Cloud-Solution-Secure-Patient-Record-Delivery-with-AWS-SNS-and-Lambda';">
+                        <div class="card11">
+                            <div class="position">
+                                <img align="center" class="icon" src="images/bot.gif" width="190">
+                                <span class="p_hcolor">Healthcare Cloud Solution</span>
+                                <p>
+                                    Architected a secure, automated healthcare reporting system on AWS using CloudFormation, Lambda, and SNS to deliver real-time patient records while ensuring data privacy
+                                </p>
+                                <p>
+                                    <b><span class="p_color">Technologies :</span></b> AWS Lambda, SNS, CloudFormation, IAM, VPC<br>
+                                    <b><span class="p_color">Environment :</span></b> AWS Cloud <br>
+                                </p>
+
+                                <p align="right"><i><span class="p_color">(Learn more)</span></i></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="card" style="height: 600px;" onclick="window.location.href = 'https://github.com/RizvanaBegum/Automated-Deployment-of-Scalable-Web-Application-on-AWS';">
+                        <div class="card10">
+                            <div class="position">
+                                <img align="center" class="icon" src="images/hero.gif" width="190">
+                                <span class="p_hcolor">Scalable Web App on AWS</span>
+                                <p>
+                                    Deployed a three-tier web application using AWS CloudFormation, featuring web, application, and database tiers with secure networking, auto-scaling, and Route 53 integration
+                                </p>
+                                <p>
+                                    <b><span class="p_color">Technologies :</span></b> AWS CloudFormation, EC2, RDS, VPC, Route 53<br>
+                                    <b><span class="p_color">Environment :</span></b> AWS Cloud <br>
+                                </p>
+
+                                <p align="right"><i><span class="p_color">(Learn more)</span></i></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="card" style="height: 600px;" onclick="window.location.href = 'https://github.com/RizvanaBegum/My-portfolio';">
+                        <div class="card7">
+                            <div class="position">
+                                <img align="center" class="icon" src="images/books.gif" width="190">
+                                <span class="p_hccolor">Personal Portfolio Website</span>
+                                <p>
+                                    Designed and developed a responsive personal portfolio website showcasing skills, projects, and achievements with modern UI/UX design. Hosted on AWS S3 using static website hosting with custom domain configuration.
+                                </p>
+                                <p>
+                                    <b><span class="p_color">Technologies :</span></b> HTML, CSS, JavaScript, AWS S3<br>
+                                    <b><span class="p_color">Environment :</span></b> AWS Cloud <br>
+                                </p>
+
+                                <p align="right"><i><span class="p_color">(Learn more)</span></i></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Projects section -->
+
+
+
+<!-- 
+
+    Photographs Section -->
+    <!-- <div id="projects">
+        <div id="photographs" class="box">
+            <h1 class="sub-project">Photography</h1>
+            <div class="pos_Set">
+                <div class="slider" onclick="window.location.href = 'https://www.instagram.com/rizvanabegum/';">
+                    <span style="--i:1;"><img class="scales" src="images/1.jpg"></span>
+                    <span style="--i:2;"><img class="scales" src="images/2.jpg"></span>
+                    <span style="--i:3;"><img class="scales" src="images/3.jpg"></span>
+                    <span style="--i:4;"><img class="scales" src="images/4.jpg"></span>
+                    <span style="--i:5;"><img class="scales" src="images/5.jpg"></span>
+                    <span style="--i:6;"><img class="scales" src="images/6.jpg"></span>
+                    <span style="--i:7;"><img class="scales" src="images/7.jpg"></span>
+                    <span style="--i:8;"><img class="scales" src="images/8.jpg"></span>
+                    <span style="--i:9;"><img class="scales" src="images/9.jpg"></span>
+                    <span style="--i:10;"><img class="scales" src="images/10.jpg"></span>
+                    <span style="--i:11;"><img class="scales" src="images/11.jpg"></span>
+                    <span style="--i:12;"><img class="scales" src="images/12.jpg"></span>
+
+                </div>
+            </div>
+
+            <div class="service-lists follow">
+                <button class="button buttonSet" onclick="window.location.href = 'Section-Photo/photography.html';">
+                    <span class="button_lg">
+                        <span class="button_sl"></span>
+                        <span class="button_text">Load More </span>
+                    </span>
+                </button>
+            </div>
+        </div>
+
+    </div> --> -->
+    <!-- Photographs Section
+
+    <!-- achivements section -->
+
+
+    <div id="Achievements" class="box">
+        <h1 class="sub-projects">Achievements</h1>
+        <div class="achievement1">
+            <div class="cards">
+                <div class="image-content">
+                    <span class="overlay">
+
+                    </span>
+
+                    <div class="card-image">
+                        <img src="https://rizvana-portfolio-site.s3.us-east-1.amazonaws.com/images/trophy.png" class="card-img">
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h2 class="name">Insta Award</h2>
+                    <p class="description">Awarded for being able to work independently and effectively in a short time <br>
+
+
+                    </p>
+
+                </div>
+            </div>
+            <div class="cards1" style="background: linear-gradient(135deg, #ffd1dc, #ffb6c1); transition: all 0.3s ease;" onmouseover="this.style.background='linear-gradient(135deg, #808080, #696969)'" onmouseout="this.style.background='linear-gradient(135deg, #ffd1dc, #ffb6c1)'">
+                <div class="image-content">
+                    <div class="card-image">
+                        <img src="https://rizvana-portfolio-site.s3.us-east-1.amazonaws.com/images/topper.webp" class="card-img">
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h2 class="name">State Level Second Rank</h2>
+                    <p class="description">Achieved second place in Tamil Nadu for the Secondary School Leaving Certificate (SSLC) examination <br>
+
+
+                    </p> 
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- achivements section -->
+
+    <!-- blogs -->
+    <div id="certifications">
+        <div class="containers box">
+            <h1 class="sub-title gg">My Certifications</h1>
+            <div class="services-list">
+                <div class="post-card"
+                    onclick="window.location.href = 'https://drive.google.com/file/d/1-g50isvNOTC5hZvm4_KRpBSr74Pm6GPF/view';">
+                    <!-- <div class="avatar"><img src="blogs/m.png"></div> -->
+                    <a class="title">AWS Certified Solutions Architect</a>
+                    <!-- <div class="seting"> -->
+                        <!-- <div class="datetime"> 11 min to read</div>
+                        <div class="datetime1"> Publication : Nerd For Tech</div> -->
+                    <!-- </div> -->
+                    <div class="image-preview"><img src="https://rizvana-portfolio-site.s3.us-east-1.amazonaws.com/certificates/saa.png"></div>
+                    <!-- <div class="comment-like"> -->
+                        <!-- <span>
+                            <?xml version="1.0" ?><svg style="enable-background:new 0 0 24 24;" version="1.1"
+                                viewBox="0 0 24 24" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"
+                                xmlns:xlink="http://www.w3.org/1999/xlink"> -->
+                                <!-- <g id="info" />
+                                <g id="icons">
+                                    <path
+                                        d="M22.2,4.1c2.7,2.7,2.4,6.9-0.4,9.5l-8.4,7.9c-0.8,0.7-2.1,0.7-2.9,0l-8.4-7.9c-2.7-2.6-3-6.8-0.4-9.5   C4.6,1.4,9.2,1.3,12,4C14.8,1.3,19.4,1.4,22.2,4.1z"
+                                        id="like" />
+                                </g>
+                            </svg>154
+                        </span> -->
+                        <!-- <span class="like">
+                            <?xml version="1.0" ?>
+                            <!DOCTYPE svg
+                                PUBLIC '-//W3C//DTD SVG 1.1//EN' 'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'><svg
+                                height="512px" id="Layer_1" style="enable-background:new 0 0 512 512;" version="1.1"
+                                viewBox="0 0 512 512" width="512px" xml:space="preserve"
+                                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                <g>
+                                    <path
+                                        d="M447.1,256.2C401.8,204,339.2,144,256,144c-33.6,0-64.4,9.5-96.9,29.8C131.7,191,103.6,215.2,65,255l-1,1l6.7,6.9   C125.8,319.3,173.4,368,256,368c36.5,0,71.9-11.9,108.2-36.4c30.9-20.9,57.2-47.4,78.3-68.8l5.5-5.5L447.1,256.2z M256,336   c-44.1,0-80-35.9-80-80c0-44.1,35.9-80,80-80c44.1,0,80,35.9,80,80C336,300.1,300.1,336,256,336z" />
+                                    <path
+                                        d="M250.4,226.8c0-6.9,2-13.4,5.5-18.8c-26.5,0-47.9,21.6-47.9,48.2c0,26.6,21.5,48.1,47.9,48.1s48-21.5,48-48.1v0   c-5.4,3.5-11.9,5.5-18.8,5.5C266,261.6,250.4,246,250.4,226.8z" />
+                                </g>
+                            </svg>300
+                        </span> -->
+                        <!-- <span>More</span> -->
+                    <!-- </div> -->
+                </div>
+
+                <div class="post-card"
+                    onclick="window.location.href = 'https://drive.google.com/file/d/12A_ZKpoYBibTxnHbviAvFUtChA-G4_iT/view?usp=drive_link';">
+                    <a class="title">AWS Certified Cloud Practitioner</a>
+                    <div class="image-preview">
+                        <img src="https://rizvana-portfolio-site.s3.us-east-1.amazonaws.com/certificates/cp.png">
+                    </div>
+                </div>
+                <div class="post-card"
+                    onclick="window.location.href = 'https://drive.google.com/file/d/1SMS049HSs9qp3oo80USLHPtfjOMLI9O_/view?usp=drive_link';">
+                    <a class="title">Advanced Certification in Cloud Computing and DevOps - IIT Roorkee </a>
+                    <div class="image-preview">
+                        <img src="https://rizvana-portfolio-site.s3.us-east-1.amazonaws.com/certificates/iitaws4.png">
+                    </div>
+                </div>
+
+                <div class="post-card"
+                    onclick="window.location.href = 'https://drive.google.com/file/d/1juor8SbicNHwt2AmQy8dOt0erYDn71l0/view?usp=drive_link';">
+                    <a class="title">Bootcamp Training - AWS and DevOps - Intellipaat</a>
+                    <div class="image-preview" style="display: flex; justify-content: center; margin-top: 20px;">
+                        <img src="https://rizvana-portfolio-site.s3.us-east-1.amazonaws.com/certificates/intellipaat.png" style="height: 200px; object-fit: contain;">
+                    </div>
+                </div>
+
+
+            <!-- </div>
+            <div class="service-lists">
+                <button class="button buttonSet" onclick="window.location.href = 'Section-Blog/blog.html';">
+                    <span class="button_lg">
+                        <span class="button_sl"></span>
+                        <span class="button_text">Load More </span>
+                    </span>
+                </button>
+            </div>
+
+        </div> -->
+    </div>
+
+
+
+
+
+    <!-- contact me -->
+
+    <div id="contactme" class="box">
+        <section class="contact hidden">
+            <div class="contact-form">
+                <h1>Contact <span class="us">Me</span></h1>
+                <p>I am available for work. Connect with me via phone:+918056350418 or email: rizvanabegumt@outlook.com</p>
+                <form action="https://formspree.io/f/xjkwwzoz" method="POST">
+                    <input type="name" name="name" placeholder="Your Name" required>    
+                    <input type="email" name="email" id="" placeholder="E-mail" required>
+                    <input type="text" name="subject" placeholder="Write a Subject" required>
+                    <textarea name="Message" id="" cols="30" rows="10" placeholder="Your Message"></textarea>
+                    <button class="btn">Submit</button>
+                </form>
+
+            </div>
+            <div class="contact-img">
+                <img class="check" src="https://rizvana-portfolio-site.s3.us-east-1.amazonaws.com/images/rizcontact.jpg">
+            </div>
+        </section>
+    </div>
+
+    <!-- contact me -->
+
+
+    <div class="Social box">
+        <div class="wrappeer">
+            <div class="icon github" onclick="window.location.href = 'https://github.com/RizvanaBegum';">
+                <div class="tooltip">GitHub</div>
+                <span><i class="fab fa-github"></i> </span>
+            </div>
+            <div class="icon linkedin"
+                onclick="window.location.href = 'https://www.linkedin.com/in/rizvanabegum/';">
+                <div class="tooltip">Linkedin</div>
+                <span><i class="fab fa-linkedin"></i> </span>
+            </div>
+        </div>
+
+
+
+        <div class="cv box">
+            <button class="button"
+                onclick="window.location.href = 'https://drive.google.com/file/d/1cJktVkomxW3xuuCUKKX5wHX3VxJIsyhi/view?usp=sharing';">
+                <span class="button_lg">
+                    <span class="button_sl"></span>
+                    <span class="button_text">Download My CV</span>
+                </span>
+            </button>
+        </div>
+    </div>
+
+
+    <!-- <div class="follower box">
+        <div class="wrapperpp">
+            <div class="containerpp">
+                <i class="fa-brands fa-instagram"></i>
+                <span class="num" data-val="340">000</span>
+                <span class="text">Instagram Followers</span>
+            </div>
+
+            <div class="containerpp">
+                <i class="fa-brands fa-github"></i>
+                <span class="num" data-val="64">000</span>
+                <span class="text">GitHub Followers</span>
+            </div>
+
+            <div class="containerpp">
+                <i class="fa-brands fa-medium"></i>
+                <span class="num" data-val="33">000</span>
+                <span class="text">Medium Followers</span>
+            </div>
+
+            <div class="containerpp ">
+                <i class="fa-brands fa-linkedin"></i>
+                <span class="num" data-val="648">000</span>
+                <span class="text">Linkedin Followers</span>
+            </div>
+            <div class="containerpp">
+                <i class="fa-brands fa-unsplash"></i>
+                <span class="num" data-val="2000">000</span>
+                <span class="text">Unplash Views</span>
+            </div>
+        </div>
+
+    </div> -->
+
+
+    <script src="Section-Home/animation.js"></script>
+
+
+
+    <div class="end">
+        <p>© 2025 Rizvana Begum. All rights reserved.</p>
+    </div>
+
+
+</body>
+
+</html>
+
