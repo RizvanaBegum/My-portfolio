@@ -10,8 +10,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <title>Rizvana's Portfolio</title>
-    <link rel="icon" href="https://rizvana-portfolio-site.s3.us-east-1.amazonaws.com/images/logo.png" type="image/x-icon">
-    <link rel="stylesheet" href="https://rizvana-portfolio-site.s3.us-east-1.amazonaws.com/style.css">
+    <link rel="icon" href="images/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;300;400;600;700&display=swap"
@@ -29,33 +29,49 @@
         @media screen and (max-width: 768px) {
             * {
                 box-sizing: border-box;
+                margin: 0;
+                padding: 0;
             }
 
             body {
                 overflow-x: hidden;
+                width: 100%;
             }
 
             .container, .containers {
-                padding: 0 20px;
+                padding: 0 15px;
                 margin: 0 auto;
+                width: 100%;
             }
 
             .box {
-                padding: 20px;
+                padding: 15px;
             }
 
             /* Header Section */
             #header {
                 min-height: 100vh;
-                padding: 20px 0;
+                padding: 15px 0;
+                background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('images/rizhome.png');
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+                position: relative;
+                width: 100%;
             }
 
             nav {
                 padding: 10px 0;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                position: relative;
+                z-index: 1;
+                width: 100%;
             }
 
             nav .logo {
-                width: 80px;
+                width: 60px;
             }
 
             #sidemenu {
@@ -75,88 +91,112 @@
 
             #sidemenu li {
                 display: block;
-                margin: 25px;
+                margin: 20px;
             }
 
             .header-text {
-                margin-top: 50px;
-                font-size: 16px;
+                margin-top: 40px;
+                font-size: 14px;
+                text-align: center;
+                position: relative;
+                z-index: 1;
+                padding: 0 10px;
             }
 
             .header-text h1 {
-                font-size: 30px;
+                font-size: 26px;
             }
 
             .header-text h2 {
-                font-size: 20px;
+                font-size: 18px;
             }
 
             /* About Section */
             .row {
                 flex-direction: column;
+                width: 100%;
+                padding: 0 10px;
             }
 
             .col-1, .col-2 {
                 flex-basis: 100%;
+                width: 100%;
+            }
+
+            .col-2 {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-top: 20px;
             }
 
             .col-2 img {
                 width: 100%;
-                margin-top: 20px;
+                max-width: 250px;
+                height: auto;
+                margin: 0 auto;
+                display: block;
             }
 
             /* Projects Section */
             .service-list {
                 display: grid;
                 grid-template-columns: 1fr;
-                gap: 20px;
+                gap: 15px;
+                padding: 0 10px;
             }
 
             .card {
                 margin: 10px 0;
                 height: auto !important;
+                width: 100%;
             }
 
             /* Skills Section */
             .tab-titles {
                 display: flex;
-                margin: 20px 0;
+                margin: 15px 0;
                 overflow-x: auto;
                 white-space: nowrap;
                 -webkit-overflow-scrolling: touch;
+                padding: 0 10px;
             }
 
             .tab-links {
                 margin-right: 15px;
-                font-size: 14px;
+                font-size: 13px;
                 display: inline-block;
             }
 
             .tab-contents ul li {
-                margin: 10px 0;
+                margin: 8px 0;
+                padding: 0 10px;
             }
 
             /* Achievements Section */
             .achievement1 {
                 display: flex;
                 flex-direction: column;
-                gap: 20px;
+                gap: 15px;
+                padding: 0 10px;
             }
 
             .cards, .cards1 {
                 width: 100%;
-                margin: 10px 0;
+                margin: 8px 0;
             }
 
             /* Certifications Section */
             .services-list {
                 display: grid;
                 grid-template-columns: 1fr;
-                gap: 20px;
+                gap: 15px;
+                padding: 0 10px;
             }
 
             .post-card {
-                margin: 10px 0;
+                margin: 8px 0;
+                width: 100%;
             }
 
             .image-preview img {
@@ -166,7 +206,8 @@
 
             /* Contact Section */
             .contact-form {
-                padding: 20px;
+                padding: 15px;
+                width: 100%;
             }
 
             .contact-img {
@@ -175,42 +216,73 @@
 
             /* Social Section */
             .Social {
-                padding: 20px;
+                padding: 15px;
+                width: 100%;
             }
 
             .wrappeer {
                 display: flex;
                 flex-wrap: wrap;
                 justify-content: center;
-                gap: 20px;
+                gap: 15px;
             }
 
             .icon {
-                margin: 10px;
+                margin: 8px;
             }
 
             /* Menu Button */
             .fas.fa-bars {
                 display: block;
-                font-size: 24px;
+                font-size: 22px;
                 cursor: pointer;
             }
 
             .fas.fa-times {
                 display: block;
-                font-size: 24px;
+                font-size: 22px;
                 cursor: pointer;
                 position: absolute;
-                top: 20px;
-                right: 20px;
+                top: 15px;
+                right: 15px;
             }
 
-            /* Fix for cover photo */
-            #header {
-                background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://rizvana-portfolio-site.s3.us-east-1.amazonaws.com/images/rizhome.png');
-                background-size: cover;
-                background-position: center;
-                background-repeat: no-repeat;
+            /* Notification */
+            .notification {
+                width: 90%;
+                left: 50%;
+                transform: translateX(-50%);
+                padding: 10px;
+            }
+
+            /* Progress */
+            #progress {
+                right: 15px;
+            }
+
+            /* End section */
+            .end {
+                text-align: center;
+                padding: 15px;
+                width: 100%;
+            }
+
+            /* Additional mobile optimizations */
+            .sub-title, .sub-projects, .h1s {
+                font-size: 24px;
+                padding: 0 10px;
+            }
+
+            .space1 {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 5px;
+                justify-content: center;
+            }
+
+            .space1 img {
+                max-width: 100%;
+                height: auto;
             }
         }
     </style>
@@ -221,18 +293,15 @@
     <div id="header">
         <div class="container box">
             <nav>
-                <img src="https://rizvana-portfolio-site.s3.us-east-1.amazonaws.com/images/rizvanacover.png" class="logo" width="100px">
+                <img src="images/rizvanacover.png" class="logo" width="100px">
 
                 <ul id="sidemenu">
                     <li><a href="#header">Home</a></li>
                     <li><a href="#about">About</a></li>
                     <li><a href="#projects">Projects</a></li>
-                    <!-- <li><a href="Section-Photo/photography.html">Photographs</a></li> -->
                     <li><a href="#Achievements">Achievements</a></li>
                     <li><a href="#certifications">Certifications</a></li>
                     <li><a href="#contactme">Contact</a></li>
-              
-                  
                     <i class="fas fa-times" onclick="closemenu()"></i>
                 </ul>
                 <i class="fas fa-bars" onclick="openmenu()"></i>
@@ -268,52 +337,10 @@
                         <span style="--i:10"></span>
                     </div>
                 </div>
-                <!-- <div class="loaader  animate__animated animate__slideInDown">
-                
-
-                    <div class="snow">
-                        <span style="--i:11"></span>
-                        <span style="--i:12"></span>
-                        <span style="--i:15"></span>
-                        <span style="--i:17"></span>
-                        <span style="--i:18"></span>
-                        <span style="--i:13"></span>
-                        <span style="--i:14"></span>
-                        <span style="--i:19"></span>
-                        <span style="--i:20"></span>
-                        <span style="--i:10"></span>
-                        <span style="--i:18"></span>
-                        <span style="--i:13"></span>
-                        <span style="--i:14"></span>
-                        <span style="--i:19"></span>
-                        <span style="--i:20"></span>
-                        <span style="--i:10"></span>
-                        <span style="--i:18"></span>
-                        <span style="--i:13"></span>
-                        <span style="--i:14"></span>
-                        <span style="--i:19"></span>
-                        <span style="--i:20"></span>
-                        <span style="--i:10"></span>
-                    </div>
-                </div> -->
                 <div class="setdiv  animate__animated animate__slideInUp">
                     <h2>Hi, I'm <br></h2>
                     <h1><span>Rizvana Begum <br>Thahirudeen</span></h1>
                     <p> Cloud and DevOps Engineer💻</p>
-                    <!-- <a href="https://git.io/typing-svg"><img
-                            src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&pause=1000&width=435&lines=I'm+a+Software+Engineer+Student;I+am+also+a+Software+Developer+;Love+to+take+Photos+and+write+blogs"
-                            alt="Typing SVG" /></a> -->
-
-               
-
-                    <!-- <div class="wrapper">
-                        <div class="circle"></div>
-                        <div class="circle"></div>
-                        <div class="circle"></div>
-                        <div class="shadow"></div>
-                        <div class="shadow"></div>
-                        <div class="shadow"></div>
-                    </div> -->
                 </div>
 
             </div>
@@ -480,7 +507,7 @@
 
                 </div>
                 <div class="col-2">
-                    <img src="https://rizvana-portfolio-site.s3.us-east-1.amazonaws.com/images/rizabout.png">
+                    <img src="images/rizabout.png">
 
                 </div>
 
@@ -1005,7 +1032,7 @@
                     </span>
 
                     <div class="card-image">
-                        <img src="https://rizvana-portfolio-site.s3.us-east-1.amazonaws.com/images/trophy.png" class="card-img">
+                        <img src="images/trophy.png" class="card-img">
                     </div>
                 </div>
                 <div class="card-content">
@@ -1020,7 +1047,7 @@
             <div class="cards1" style="background: linear-gradient(135deg, #ffd1dc, #ffb6c1); transition: all 0.3s ease;" onmouseover="this.style.background='linear-gradient(135deg, #808080, #696969)'" onmouseout="this.style.background='linear-gradient(135deg, #ffd1dc, #ffb6c1)'">
                 <div class="image-content">
                     <div class="card-image">
-                        <img src="https://rizvana-portfolio-site.s3.us-east-1.amazonaws.com/images/topper.webp" class="card-img">
+                        <img src="images/topper.webp" class="card-img">
                     </div>
                 </div>
                 <div class="card-content">
@@ -1047,57 +1074,22 @@
             <div class="services-list">
                 <div class="post-card"
                     onclick="window.location.href = 'https://drive.google.com/file/d/1-g50isvNOTC5hZvm4_KRpBSr74Pm6GPF/view';">
-                    <!-- <div class="avatar"><img src="blogs/m.png"></div> -->
                     <a class="title">AWS Certified Solutions Architect</a>
-                    <!-- <div class="seting"> -->
-                        <!-- <div class="datetime"> 11 min to read</div>
-                        <div class="datetime1"> Publication : Nerd For Tech</div> -->
-                    <!-- </div> -->
-                    <div class="image-preview"><img src="https://rizvana-portfolio-site.s3.us-east-1.amazonaws.com/certificates/saa.png"></div>
-                    <!-- <div class="comment-like"> -->
-                        <!-- <span>
-                            <?xml version="1.0" ?><svg style="enable-background:new 0 0 24 24;" version="1.1"
-                                viewBox="0 0 24 24" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"
-                                xmlns:xlink="http://www.w3.org/1999/xlink"> -->
-                                <!-- <g id="info" />
-                                <g id="icons">
-                                    <path
-                                        d="M22.2,4.1c2.7,2.7,2.4,6.9-0.4,9.5l-8.4,7.9c-0.8,0.7-2.1,0.7-2.9,0l-8.4-7.9c-2.7-2.6-3-6.8-0.4-9.5   C4.6,1.4,9.2,1.3,12,4C14.8,1.3,19.4,1.4,22.2,4.1z"
-                                        id="like" />
-                                </g>
-                            </svg>154
-                        </span> -->
-                        <!-- <span class="like">
-                            <?xml version="1.0" ?>
-                            <!DOCTYPE svg
-                                PUBLIC '-//W3C//DTD SVG 1.1//EN' 'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'><svg
-                                height="512px" id="Layer_1" style="enable-background:new 0 0 512 512;" version="1.1"
-                                viewBox="0 0 512 512" width="512px" xml:space="preserve"
-                                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                                <g>
-                                    <path
-                                        d="M447.1,256.2C401.8,204,339.2,144,256,144c-33.6,0-64.4,9.5-96.9,29.8C131.7,191,103.6,215.2,65,255l-1,1l6.7,6.9   C125.8,319.3,173.4,368,256,368c36.5,0,71.9-11.9,108.2-36.4c30.9-20.9,57.2-47.4,78.3-68.8l5.5-5.5L447.1,256.2z M256,336   c-44.1,0-80-35.9-80-80c0-44.1,35.9-80,80-80c44.1,0,80,35.9,80,80C336,300.1,300.1,336,256,336z" />
-                                    <path
-                                        d="M250.4,226.8c0-6.9,2-13.4,5.5-18.8c-26.5,0-47.9,21.6-47.9,48.2c0,26.6,21.5,48.1,47.9,48.1s48-21.5,48-48.1v0   c-5.4,3.5-11.9,5.5-18.8,5.5C266,261.6,250.4,246,250.4,226.8z" />
-                                </g>
-                            </svg>300
-                        </span> -->
-                        <!-- <span>More</span> -->
-                    <!-- </div> -->
+                    <div class="image-preview"><img src="certificates/saa.png"></div>
                 </div>
 
                 <div class="post-card"
                     onclick="window.location.href = 'https://drive.google.com/file/d/12A_ZKpoYBibTxnHbviAvFUtChA-G4_iT/view?usp=drive_link';">
                     <a class="title">AWS Certified Cloud Practitioner</a>
                     <div class="image-preview">
-                        <img src="https://rizvana-portfolio-site.s3.us-east-1.amazonaws.com/certificates/cp.png">
+                        <img src="certificates/cp.png">
                     </div>
                 </div>
                 <div class="post-card"
                     onclick="window.location.href = 'https://drive.google.com/file/d/1SMS049HSs9qp3oo80USLHPtfjOMLI9O_/view?usp=drive_link';">
                     <a class="title">Advanced Certification in Cloud Computing and DevOps - IIT Roorkee </a>
                     <div class="image-preview">
-                        <img src="https://rizvana-portfolio-site.s3.us-east-1.amazonaws.com/certificates/iitaws4.png">
+                        <img src="certificates/iitaws4.png">
                     </div>
                 </div>
 
@@ -1105,22 +1097,13 @@
                     onclick="window.location.href = 'https://drive.google.com/file/d/1juor8SbicNHwt2AmQy8dOt0erYDn71l0/view?usp=drive_link';">
                     <a class="title">Bootcamp Training - AWS and DevOps - Intellipaat</a>
                     <div class="image-preview" style="display: flex; justify-content: center; margin-top: 20px;">
-                        <img src="https://rizvana-portfolio-site.s3.us-east-1.amazonaws.com/certificates/intellipaat.png" style="height: 200px; object-fit: contain;">
+                        <img src="certificates/intellipaat.png" style="height: 200px; object-fit: contain;">
                     </div>
                 </div>
 
 
-            <!-- </div>
-            <div class="service-lists">
-                <button class="button buttonSet" onclick="window.location.href = 'Section-Blog/blog.html';">
-                    <span class="button_lg">
-                        <span class="button_sl"></span>
-                        <span class="button_text">Load More </span>
-                    </span>
-                </button>
             </div>
-
-        </div> -->
+        </div>
     </div>
 
 
@@ -1144,7 +1127,7 @@
 
             </div>
             <div class="contact-img">
-                <img class="check" src="https://rizvana-portfolio-site.s3.us-east-1.amazonaws.com/images/rizcontact.jpg">
+                <img class="check" src="images/rizcontact.jpg">
             </div>
         </section>
     </div>
