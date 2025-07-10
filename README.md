@@ -1,1 +1,1 @@
-![My Portfolio](./images/logo.png)
+![My Portfolio](./images/Portfolio full image.png)
