@@ -52,10 +52,7 @@
             #header {
                 min-height: 100vh;
                 padding: 15px 0;
-                background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('images/dp.jpg');
-                background-size: cover;
-                background-position: center;
-                background-repeat: no-repeat;
+                background: none !important;
                 position: relative;
                 width: 100%;
             }
@@ -555,6 +552,63 @@
                 height: auto;
             }
         }
+        /* Larger text for Experience section */
+        #experience-section {
+            background: #f3f4f6;
+            border-radius: 12px;
+            padding: 32px 24px 24px 24px;
+            margin: 32px 0;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+            color: #222;
+        }
+        #experience-section .sub-title {
+            font-size: 2.2em;
+            margin-bottom: 18px;
+            color: #222;
+        }
+        #experience-section ul {
+            list-style: none;
+            padding: 0;
+        }
+        #experience-section ul li {
+            margin-bottom: 32px;
+            padding-bottom: 18px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        #experience-section ul li:last-child {
+            border-bottom: none;
+        }
+        #experience-section .job-title {
+            font-weight: bold;
+            font-size: 1.18em;
+            color: #2d3a4b;
+            vertical-align: middle;
+        }
+        #experience-section .job-icon {
+            color: #2ecc71;
+            margin-right: 10px;
+            font-size: 1.3em;
+            vertical-align: middle;
+        }
+        #experience-section .job-date {
+            font-size: 1em;
+            color: #888;
+            font-style: italic;
+            margin-bottom: 8px;
+            display: block;
+        }
+        #experience-section ul.achievements {
+            list-style: disc inside;
+            margin-top: 8px;
+            margin-bottom: 0;
+        }
+        #experience-section ul.achievements li {
+            border: none;
+            margin-bottom: 6px;
+            padding-bottom: 0;
+            font-size: 1.08em;
+            color: #222;
+        }
     </style>
 </head>
 
@@ -659,7 +713,6 @@
 
                     <div class="tab-titles">
                         <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
-                        <p class="tab-links" onclick="opentab('experience')">Experience</p>
                         <p class="tab-links" onclick="opentab('education')">Education</p>
                         <p class="tab-links" onclick="opentab('others')">Others</p>
                     </div>
@@ -755,22 +808,32 @@
                         </ul>
                     </div>
 
-                    <div class="tab-contents" id="experience">
+                    <!-- Experience Section: moved here as requested -->
+                    <div id="experience-section" class="box">
+                        <h1 class="sub-title">Experience</h1>
                         <ul>
-                            <li><span class="Education"><b>Intellipaat [Bootcamp]</b> </span><br>
-                                <p>April 2024 - March 2025</p>
-                                <p>• Earned AWS Solutions Architect certification; executed cloud architecture and troubleshooting projects.</p>
-                                <p>• Designed and managed AWS infrastructure (EC2, S3, VPC, IAM, Auto Scaling, RDS) to deploy secure, scalable web applications, applying Infrastructure as Code (IaC) using Terraform and CloudFormation.</p>
-                                <p>• Automated CI/CD pipelines using Jenkins, Git, Docker, Ansible, and Kubernetes for streamlined deployments.</p>
-                            </li><br>
-                            <li><span class="Education"><b>Infosys | Software Quality Engineer</b> </span><br>
-                                <p>September 2021 - Present</p>
-                                <p>• Built and maintained CI/CD pipelines in Jenkins, reducing testing cycle time by 60%.</p>
-                                <p>• Collaborated with DevOps engineers to test and validate AWS-based architectures, gaining hands-on experience with S3, EC2, IAM policies, and VPC configurations.</p>
-                                <p>• Participated in infrastructure provisioning and validation using Infrastructure as Code (IaC) principles alongside Terraform and CloudFormation during project transitions.</p>
-                                <p>• Analyzed logs using AWS CloudWatch and Jenkins post-deployment to detect issues early, reducing post-release defects by 25%.</p>
-                                <p>• Automated 80% of regression test cases using Python, Selenium WebDriver, and BDD (Behave), resulting in a 30% reduction in manual testing effort and improved test reliability.</p>
-                                <p>• Participated in Scrum rituals, mentored junior team members, and received "Insta Award" for cross-team efficiency.</p>
+                            <li>
+                                <span class="job-icon"><i class="fas fa-certificate"></i></span>
+                                <span class="job-title">Intellipaat [Bootcamp]</span>
+                                <span class="job-date">April 2024 - March 2025</span>
+                                <ul class="achievements">
+                                    <li>Earned AWS Solutions Architect certification; executed cloud architecture and troubleshooting projects.</li>
+                                    <li>Designed and managed AWS infrastructure (EC2, S3, VPC, IAM, Auto Scaling, RDS) to deploy secure, scalable web applications, applying Infrastructure as Code (IaC) using Terraform and CloudFormation.</li>
+                                    <li>Automated CI/CD pipelines using Jenkins, Git, Docker, Ansible, and Kubernetes for streamlined deployments.</li>
+                                </ul>
+                            </li>
+                            <li>
+                                <span class="job-icon"><i class="fas fa-briefcase"></i></span>
+                                <span class="job-title">Infosys | Software Quality Engineer</span>
+                                <span class="job-date">September 2021 - Present</span>
+                                <ul class="achievements">
+                                    <li>Built and maintained CI/CD pipelines in Jenkins, reducing testing cycle time by 60%.</li>
+                                    <li>Collaborated with DevOps engineers to test and validate AWS-based architectures, gaining hands-on experience with S3, EC2, IAM policies, and VPC configurations.</li>
+                                    <li>Participated in infrastructure provisioning and validation using Infrastructure as Code (IaC) principles alongside Terraform and CloudFormation during project transitions.</li>
+                                    <li>Analyzed logs using AWS CloudWatch and Jenkins post-deployment to detect issues early, reducing post-release defects by 25%.</li>
+                                    <li>Automated 80% of regression test cases using Python, Selenium WebDriver, and BDD (Behave), resulting in a 30% reduction in manual testing effort and improved test reliability.</li>
+                                    <li>Participated in Scrum rituals, mentored junior team members, and received "Insta Award" for cross-team efficiency.</li>
+                                </ul>
                             </li>
                         </ul>
                     </div>
